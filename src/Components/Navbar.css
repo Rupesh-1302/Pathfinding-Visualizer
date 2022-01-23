@@ -1,0 +1,35 @@
+.algo-dropdown {
+  position: absolute;
+  right: 0;
+  bottom: -340px;
+  background-color: rgba(99, 102, 241, 0.15);
+  backdrop-filter: blur(5px);
+  border-radius: 10px;
+  z-index: 2;
+}
+
+.maze-dropdown {
+  position: absolute;
+  right: 0;
+  bottom: -400px;
+  background-color: rgba(99, 102, 241, 0.15);
+  backdrop-filter: blur(5px);
+  border-radius: 10px;
+  z-index: 2;
+}
+
+.algo-dropdown-item,
+.maze-dropdown-item {
+  transition: all 150ms ease-in;
+  border-bottom: 1px solid #cbd5e1;
+}
+
+.visualization-button {
+  background-color: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(5px);
+}
+
+.visualization-button:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #6366f1;
+}

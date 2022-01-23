@@ -1,0 +1,110 @@
+.grid {
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+}
+
+.row {
+  display: flex;
+}
+
+.node {
+  border: 1px solid #a5f3fc;
+  width: 27px;
+  height: 27px;
+}
+
+.source-node {
+  background-image: url("/public/Icons/icons8-dog-24.png");
+  background-repeat: no-repeat;
+}
+.destination-node {
+  background-image: url("/public/Icons/icons8-dog-house-24.png");
+  background-repeat: no-repeat;
+}
+.wall-node {
+  background-color: #ca965c;
+  animation-name: wallNode;
+  animation-duration: 500ms;
+  animation-timing-function: ease-in;
+}
+@keyframes wallNode {
+  50% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.weight-node {
+  background-image: url("/public/Icons/weight.png");
+  animation-name: weightNode;
+  animation-duration: 500ms;
+  animation-timing-function: ease-in;
+}
+@keyframes weightNode {
+  50% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.visualize-button {
+  display: block;
+  min-height: 50px;
+  width: 200px;
+  margin: 20px auto;
+  padding: 20px;
+  font-size: large;
+}
+.visited-node {
+  /* background-color: blueviolet; */
+  /* transition: background-color 250ms ease-in; */
+  border-color: white;
+  animation-name: visitedNode;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in;
+}
+@keyframes visitedNode {
+  0% {
+    background-color: #93c5fd;
+    border-radius: 50%;
+  }
+  33% {
+    background-color: #3b82f6;
+    border-radius: 25%;
+  }
+  50% {
+    transform: scale(0.5);
+  }
+  66% {
+    background-color: #2563eb;
+    border-radius: 10%;
+  }
+  100% {
+    background-color: #1e40af;
+    border-radius: 0%;
+    transform: scale(1);
+  }
+}
+.path-node {
+  background-color: yellow;
+  animation-name: pathNode;
+  animation-duration: 250ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in;
+}
+
+@keyframes pathNode {
+  0% {
+    background-color: #baffb4;
+  }
+  50% {
+    transform: scale(0.5);
+  }
+  100% {
+    background-color: #fff89a;
+    transform: scale(1);
+  }
+}
