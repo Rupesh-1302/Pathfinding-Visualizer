@@ -5,8 +5,10 @@ import "./App.css";
 
 function App() {
   const [algo, setAlgo] = useState("Dijkstra");
+  const [algoInProgress, setAlgoInProgress] = useState(false);
   let funcRef = useRef(null);
-  function visualizeAlgorithm() {
+  async function visualizeAlgorithm() {
+    setAlgoInProgress(true);
     funcRef.current.clearPath();
     switch (algo) {
       case "Dijkstra":
@@ -29,25 +31,29 @@ function App() {
     funcRef.current.clearPath();
   }
   function handleClearWalls() {
+    funcRef.current.clearPath();
     funcRef.current.clearWalls();
   }
-  function createMaze(maze) {
+  async function createMaze(maze) {
+    setAlgoInProgress(true);
     funcRef.current.clearPath();
     funcRef.current.clearWalls();
     switch (maze) {
       case "RandomizeDFS":
-        funcRef.current.randomizeDFS();
+        await funcRef.current.randomizeDFS();
         break;
       case "RecursiveDivision":
-        funcRef.current.recursiveDivision();
+        await funcRef.current.recursiveDivision();
         break;
       case "RecursiveDivisionWeights":
-        funcRef.current.recursiveDivisionWeights();
+        await funcRef.current.recursiveDivisionWeights();
         break;
       case "RandomizeDFSWeights":
-        funcRef.current.randomizeDFSWeights();
+        await funcRef.current.randomizeDFSWeights();
         break;
     }
+
+    setAlgoInProgress(false);
   }
   function handleAlgoChange(algorithm) {
     setAlgo(algorithm);
@@ -61,9 +67,10 @@ function App() {
         handleClearPath={handleClearPath}
         handleClearWalls={handleClearWalls}
         createMaze={createMaze}
+        algoInProgress={algoInProgress}
       />
       <div className="main bg-white">
-        <Board ref={funcRef} />
+        <Board ref={funcRef} setAlgoInProgress={setAlgoInProgress} />
       </div>
     </div>
   );

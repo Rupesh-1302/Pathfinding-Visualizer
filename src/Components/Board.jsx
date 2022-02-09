@@ -81,6 +81,7 @@ function Board(props, ref) {
       }
 
       await changeClassToPathNode();
+      props.setAlgoInProgress(false);
     }
     visualizationEffect();
   }, [visitedNodeOrder, path]);
@@ -265,7 +266,7 @@ function Board(props, ref) {
           });
         });
       },
-      randomizeDFS: () => {
+      randomizeDFS: async () => {
         let walls = RandomizeDFS(
           valueGrid,
           false,
@@ -284,9 +285,9 @@ function Board(props, ref) {
           }
         }
 
-        visualizeWalls();
+        await visualizeWalls();
       },
-      randomizeDFSWeights: () => {
+      randomizeDFSWeights: async () => {
         let weights = RandomizeDFS(
           valueGrid,
           false,
@@ -309,9 +310,9 @@ function Board(props, ref) {
           console.log(valueGrid);
         }
 
-        visualizeWeights();
+        await visualizeWeights();
       },
-      recursiveDivision: () => {
+      recursiveDivision: async () => {
         let walls = RecursiveDivision(
           valueGrid,
           false,
@@ -334,9 +335,9 @@ function Board(props, ref) {
           }
         }
 
-        visualizeWalls();
+        await visualizeWalls();
       },
-      recursiveDivisionWeights: () => {
+      recursiveDivisionWeights: async () => {
         let weights = RecursiveDivision(
           valueGrid,
           false,
@@ -359,7 +360,7 @@ function Board(props, ref) {
           }
         }
 
-        visualizeWeights();
+        await visualizeWeights();
       },
       clearWalls: () => {
         valueGrid.forEach((row) => {

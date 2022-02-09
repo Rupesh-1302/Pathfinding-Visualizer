@@ -8,7 +8,9 @@ function Navbar({
   handleClearPath,
   createMaze,
   handleClearWalls,
+  algoInProgress,
 }) {
+  console.log(algoInProgress);
   const [algoSelect, setAlgoSelect] = useState(false);
   const [mazeSelect, setMazeSelect] = useState(false);
   function handleAlgorithmSelect() {
@@ -31,6 +33,7 @@ function Navbar({
           <button
             className="algo-select-button text-center px-2 py-4 box-border h-full drop-shadow-xl"
             onClick={handleAlgorithmSelect}
+            disabled={algoInProgress}
           >
             Algorithm
           </button>
@@ -87,6 +90,7 @@ function Navbar({
           <button
             className="maze-select-button text-center px-2 py-4 box-border h-full drop-shadow-xl"
             onClick={handleMazeSelect}
+            disabled={algoInProgress}
           >
             Maze {"&"} pattern
           </button>
@@ -144,6 +148,7 @@ function Navbar({
           <button
             onClick={visualizeAlgorithm}
             className="text-center drop-shadow-xl px-2 py-4 box-border rounded-xl  shadow  visualization-button"
+            disabled={algoInProgress}
           >
             Visualize {algo}
           </button>
@@ -152,6 +157,7 @@ function Navbar({
           <button
             className="algo-select-button text-center px-2 py-4 box-border h-full drop-shadow-xl"
             onClick={handleClearPath}
+            disabled={algoInProgress}
           >
             Clear Path
           </button>
@@ -160,18 +166,20 @@ function Navbar({
           <button
             className="algo-select-button text-center px-2 py-4 box-border h-full drop-shadow-xl"
             onClick={handleClearWalls}
+            disabled={algoInProgress}
           >
             Clear Walls {"&"} weights
           </button>
         </li>
-        <li className="flex-initial relative w-30 text-2xl h-full font-bold box-border hover:bg-indigo-600 hover:text-white">
+        {/* <li className="flex-initial relative w-30 text-2xl h-full font-bold box-border hover:bg-indigo-600 hover:text-white">
           <button
             className="algo-select-button text-center px-2 py-4 box-border h-full drop-shadow-xl"
             onClick={handleClearPath}
+            disabled={algoInProgress}
           >
             Clear Path
           </button>
-        </li>
+        </li> */}
       </ul>
     </nav>
   );
